@@ -7,6 +7,7 @@ import 'package:random_user_data_persistence/app/router/routes.dart';
 import 'package:random_user_data_persistence/features/users/data/model/user_model.dart';
 import 'package:random_user_data_persistence/features/users/presentation/model/home_state.dart';
 import 'package:random_user_data_persistence/features/users/presentation/view_model/home_cubit.dart';
+import 'package:random_user_data_persistence/features/users/presentation/widgets/home_app_bar.dart';
 import 'package:random_user_data_persistence/features/users/presentation/widgets/item_list_user_widget.dart';
 
 class HomeView extends StatefulWidget {
@@ -53,6 +54,11 @@ class _HomeViewState extends State<HomeView>
       builder: (context, state) {
         List<UserModel> listUser = state.listUsers.reversed.toList();
         return Scaffold(
+          appBar: HomeAppBar(
+            onTapDatabase: () {
+              context.push(Routes.persistedUsers);
+            },
+          ),
           body: ListView.separated(
             itemCount: listUser.length,
             itemBuilder: (context, index) {

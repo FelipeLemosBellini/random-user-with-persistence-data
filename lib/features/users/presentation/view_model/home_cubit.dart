@@ -9,7 +9,7 @@ class HomeCubit extends Cubit<HomeState> {
 
   void getUser() async {
     final response = await userRepository.getUser();
-    response.fold((user) {
+    await response.fold((user) async {
       state.listUsers.add(user);
       emit(state.copyWith(listUsers: state.listUsers));
     }, (onFailure) {});

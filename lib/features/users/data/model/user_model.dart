@@ -1,8 +1,11 @@
+import 'package:random_user_data_persistence/features/users/data/model/coordinates_model.dart';
 import 'package:random_user_data_persistence/features/users/data/model/data_info_model.dart';
 import 'package:random_user_data_persistence/features/users/data/model/location_model.dart';
 import 'package:random_user_data_persistence/features/users/data/model/login_model.dart';
 import 'package:random_user_data_persistence/features/users/data/model/person_name_model.dart';
 import 'package:random_user_data_persistence/features/users/data/model/picture_model.dart';
+import 'package:random_user_data_persistence/features/users/data/model/street_model.dart';
+import 'package:random_user_data_persistence/features/users/data/model/timezone_model.dart';
 import 'package:random_user_data_persistence/features/users/data/model/user_id_model.dart';
 
 class UserModel {

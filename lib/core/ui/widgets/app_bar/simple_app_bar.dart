@@ -11,7 +11,9 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
     return SafeArea(
       child: Container(
         decoration: BoxDecoration(
-          border: Border(bottom: BorderSide(color: Colors.grey, width: 2)),
+          border: Border(
+            bottom: BorderSide(color: Color(0xFF5D5D5D), width: 2),
+          ),
         ),
         child: Stack(
           children: [
@@ -37,7 +39,10 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
             Align(
               alignment: Alignment.center,
-              child: Text(title, style: TextStyle(fontSize: 24)),
+              child: Text(
+                title,
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.w600),
+              ),
             ),
           ],
         ),
@@ -46,5 +51,5 @@ class SimpleAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize => Size.fromHeight(48);
+  Size get preferredSize => Size.fromHeight(64);
 }
