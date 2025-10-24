@@ -2,6 +2,9 @@
 <img width="101" height="92" alt="image" src="https://github.com/user-attachments/assets/93e3b831-eecd-465f-8e54-ccff9df11b63" />
 
 * Flutter utilizado: 3.32.0
+* Xcode: 26.0.1
+* simulador iOS 18.1
+* simulador android API 35
 
 Estrutura de apresentação MVVM consumindo um Repository que manipula os dados e um DataSource que
 faz a comunicação remota e local.
