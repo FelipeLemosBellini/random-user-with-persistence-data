@@ -8,6 +8,7 @@ faz a comunicação remota e local.
 
 # Fluxo de dados
 DataSource -> Repository -> MVVM
+
 DataSource <- Repository <- MVVM
 
 # Principais bibliotecas utilizadas
