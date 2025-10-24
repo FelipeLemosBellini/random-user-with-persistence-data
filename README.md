@@ -6,6 +6,10 @@
 * simulador iOS 18.1
 * simulador android API 35
 
+# API consumida: 
+Site: https://randomuser.me/ 
+API: https://randomuser.me/api/ 
+
 Estrutura de apresentação MVVM consumindo um Repository que manipula os dados e um DataSource que
 faz a comunicação remota e local.
 
