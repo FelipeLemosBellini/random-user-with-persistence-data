@@ -65,7 +65,10 @@ class _HomeViewState extends State<HomeView>
               UserModel userModel = listUser.elementAt(index);
               return GestureDetector(
                 onTap: () {
-                  context.push(Routes.details, extra: {'userModel': userModel});
+                  context.push(
+                    Routes.details,
+                    extra: {'userModel': userModel, 'canSave': true},
+                  );
                 },
                 child: ItemListUserWidget(user: userModel),
               );

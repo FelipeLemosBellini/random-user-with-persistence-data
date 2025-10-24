@@ -2,6 +2,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:random_user_data_persistence/features/users/data/repositories/user_repository.dart';
 import 'package:random_user_data_persistence/features/users/presentation/model/persisted_users_state.dart';
 
+class ErrorListUsers extends PersistedUsersState {
+  ErrorListUsers({required super.listUsers});
+}
+
 class PersistedUsersCubit extends Cubit<PersistedUsersState> {
   final UserRepository userRepository;
 
@@ -11,8 +15,13 @@ class PersistedUsersCubit extends Cubit<PersistedUsersState> {
   void getListUsers() async {
     var response = await userRepository.getLocalListUsers();
 
-    response.fold((list) {
-      emit(state.copyWith(listUsers: list));
-    }, (onFailure) {});
+    response.fold(
+      (list) {
+        emit(state.copyWith(listUsers: list));
+      },
+      (onFailure) {
+        emit(ErrorListUsers(listUsers: []));
+      },
+    );
   }
 }

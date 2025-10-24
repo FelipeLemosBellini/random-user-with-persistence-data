@@ -33,7 +33,7 @@ GoRouter router = GoRouter(
         return Transitions.customTransitionPage(
           BlocProvider(
             create: (_) => getIt.get<DetailsCubit>(),
-            child: DetailsView(userModel: extra['userModel']),
+            child: DetailsView(userModel: extra['userModel'],canSave: extra['canSave'],),
           ),
           state,
         );
