@@ -56,7 +56,7 @@ class _PersistedUsersViewState extends State<PersistedUsersView> {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 24),
                   child: Text(
-                    "Não há nenhum usuário salvo por enquanto.",
+                    "Não há nenhum usuário salvo.",
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 16),
                   ),
                 ),
