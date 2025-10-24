@@ -1,17 +1,17 @@
 # random_user_data_persistence
 
-using random user API for data persistence
+* Flutter utilizado: 3.32.0
 
-## Getting Started
+Estrutura de apresentação MVVM consumindo um Repository que manipula os dados e um DataSource que
+faz a comunicação remota e local.
 
-This project is a starting point for a Flutter application.
+# Fluxo de dados
+DataSource -> Repository -> MVVM
+DataSource <- Repository <- MVVM
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# random-user-with-persistence-data
+# Principais bibliotecas utilizadas
+Bloc: Gerenciamento de tela e emissão de eventos para View
+GetIt: Injeção de dependência
+GoRouter: Gerenciamento de rotas e passagem de parâmetros
+EventBus: Comunicar ações entre Views
+Drift: Banco relacional para persistência de dados 
