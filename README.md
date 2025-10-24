@@ -10,13 +10,14 @@
 Site: https://randomuser.me/ 
 API: https://randomuser.me/api/ 
 
-Estrutura de apresentação MVVM consumindo um Repository que manipula os dados e um DataSource que
-faz a comunicação remota e local.
-
 # Fluxo de dados
 DataSource -> Repository -> MVVM
 
 DataSource <- Repository <- MVVM
+
+Estrutura de apresentação MVVM consumindo um Repository que manipula os dados e um DataSource que
+faz a comunicação remota e local.
+
 
 # Principais bibliotecas utilizadas
 Bloc(Cubit): Gerenciamento de tela e emissão de eventos para View
