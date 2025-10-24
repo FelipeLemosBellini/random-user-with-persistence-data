@@ -10,7 +10,7 @@ DataSource -> Repository -> MVVM
 DataSource <- Repository <- MVVM
 
 # Principais bibliotecas utilizadas
-Bloc: Gerenciamento de tela e emissão de eventos para View
+Bloc(Cubit): Gerenciamento de tela e emissão de eventos para View
 GetIt: Injeção de dependência
 GoRouter: Gerenciamento de rotas e passagem de parâmetros
 EventBus: Comunicar ações entre Views

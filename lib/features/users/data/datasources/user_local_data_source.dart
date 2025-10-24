@@ -11,11 +11,20 @@ import 'package:random_user_data_persistence/features/users/data/model/timezone_
 import 'package:random_user_data_persistence/features/users/data/model/user_id_model.dart';
 import 'package:random_user_data_persistence/features/users/data/model/user_model.dart';
 
-class UserLocalDataSource {
+abstract class UserLocalDataSourceInterface {
+  Future<void> saveUser(UserModel user);
+
+  Future<void> deleteByUuid(String uuid);
+
+  Future<List<UserModel>> listAllUsers();
+}
+
+class UserLocalDataSource implements UserLocalDataSourceInterface {
   final AppDatabase appDatabase;
 
   UserLocalDataSource({required this.appDatabase});
 
+  @override
   Future<void> saveUser(UserModel user) async {
     final uuid = user.login.uuid.toString();
     await appDatabase.transaction(() async {
@@ -127,12 +136,14 @@ class UserLocalDataSource {
     });
   }
 
+  @override
   Future<void> deleteByUuid(String uuid) {
     return (appDatabase.delete(
       appDatabase.users,
     )..where((u) => u.uuid.equals(uuid))).go();
   }
 
+  @override
   Future<List<UserModel>> listAllUsers() async {
     final query = appDatabase.select(appDatabase.users).join([
       innerJoin(

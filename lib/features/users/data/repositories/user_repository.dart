@@ -3,7 +3,17 @@ import 'package:random_user_data_persistence/features/users/data/datasources/use
 import 'package:random_user_data_persistence/features/users/data/model/user_model.dart';
 import 'package:result_dart/result_dart.dart';
 
-class UserRepository {
+abstract class UserRepositoryInterface {
+  Future<Result<UserModel>> getUser();
+
+  Future<Result<void>> saveUser({required UserModel user});
+
+  Future<Result<void>> removeUser({required UserModel user});
+
+  Future<Result<List<UserModel>>> getLocalListUsers();
+}
+
+class UserRepository implements UserRepositoryInterface {
   final UserRemoteDataSource userRemoteDataSource;
   final UserLocalDataSource userLocalDataSource;
 
@@ -12,6 +22,7 @@ class UserRepository {
     required this.userLocalDataSource,
   });
 
+  @override
   Future<Result<UserModel>> getUser() async {
     try {
       final response = await userRemoteDataSource.getNewUser();
@@ -22,6 +33,7 @@ class UserRepository {
     }
   }
 
+  @override
   Future<Result<void>> saveUser({required UserModel user}) async {
     try {
       await userLocalDataSource.saveUser(user);
@@ -31,6 +43,7 @@ class UserRepository {
     }
   }
 
+  @override
   Future<Result<void>> removeUser({required UserModel user}) async {
     try {
       await userLocalDataSource.deleteByUuid(user.login.uuid);
@@ -40,6 +53,7 @@ class UserRepository {
     }
   }
 
+  @override
   Future<Result<List<UserModel>>> getLocalListUsers() async {
     try {
       final response = await userLocalDataSource.listAllUsers();
